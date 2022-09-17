@@ -1,11 +1,24 @@
 function nilaiTertinggi(siswa) {
-    var output = {};
-    for (var i = 0; i < siswa.length; i++) {
-    var current = siswa[i];
-      
-    return output;
+  var output = {}
+  for (var i = 0; i < siswa.length; i++) {
+    var current = siswa[i]
+    if (!output[current.class]) {
+      output[current.class] = {
+        name: current.name,
+        score: current.score
+      }
+    } else {
+      if (current.score > output[current.class].score) {
+        output[current.class] = {
+          name: current.name,
+          score: current.score
+        }
+      }
     }
+  }
+  return output
 }
+
 // TEST CASE
 console.log(nilaiTertinggi([
     {
